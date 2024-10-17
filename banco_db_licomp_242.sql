@@ -44,3 +44,18 @@ add uf char(2) default 'RJ';
 alter table clientes
 add dia_niver int, 
 add mes_niver int;
+
+-- adicionando regras para dia e mes niver
+alter table clientes
+add constraint clientes_dia_ck check(dia_niver >= 1 and dia_niver <= 31),
+add constraint clientes_mes_ck check(mes_niver >= 1 and mes_niver <= 31);
+
+-- comando para listar as regras de um banco de dados
+select constraint_name, constraint_type, table_name
+from information_schema.table_constraints
+where table_schema = 'bancodb_licomp_242';
+
+-- comando para listar as checks
+select constraint_name, check_clause
+from information_schema.check_constraints
+where constraint_schema = 'bancodb_licomp_242';
