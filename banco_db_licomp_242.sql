@@ -67,3 +67,11 @@ add constraint clientes_email_uq unique(email);
 -- excluindo a regra unique de email
 alter table clientes
 drop constraint clientes_email_uq;
+
+-- alter table produtos
+-- modify unidade varchar(50) default 'unidades';
+
+-- modifique a tabela clientes, de modo que caso o dia_niver não seja informado, o banco assuma o dia do seu aniversário
+alter table clientes
+modify dia_niver int default 7;
+
