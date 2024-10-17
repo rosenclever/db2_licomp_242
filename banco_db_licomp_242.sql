@@ -59,3 +59,11 @@ where table_schema = 'bancodb_licomp_242';
 select constraint_name, check_clause
 from information_schema.check_constraints
 where constraint_schema = 'bancodb_licomp_242';
+
+-- faça com que a coluna email de clientes nunca aceite valores repetidos
+alter table clientes
+add constraint clientes_email_uq unique(email);
+
+-- excluindo a regra unique de email
+alter table clientes
+drop constraint clientes_email_uq;
